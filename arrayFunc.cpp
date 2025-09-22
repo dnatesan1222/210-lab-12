@@ -9,16 +9,16 @@ using namespace std;
 int main() {
     ifstream fin("data.csv");
 
-    if (fin.good( )) {
-        string arr[50];
-        int count = 0;
+    array<string,50> arr;
+    int count = 0;
     
+    if (fin.good( )) {
         string line;
         //header
         getline(fin, line);
         cout << line << endl;
 
-        while (getline(fin, line) && count < 50) { 
+        while (getline(fin, line) && count < arr.size()) { 
             arr[count] = line;
             count += 1;
         }
@@ -27,18 +27,9 @@ int main() {
     else
        cout << "File not found.\n";
 
-    for (int i = 0; i < count; i++) {
-        cout << lines[i] << endl;
+    for (int i = 0; i<count; i++) {
+        cout << arr.at(i) << endl;
     }
-
-}
-
-
-
-int main(){
-    
-    string arr[5]
-
     return 0;
 }
 
