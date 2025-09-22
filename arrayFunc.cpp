@@ -9,29 +9,28 @@ using namespace std;
 int main() {
     ifstream fin("data.csv");
 
-    string state;
-    string abbr;
-    int pop;
-    
-    string line;
-    //header
-    getline(fin, line);
-    cout << state << '\t' << abbr << '\t' << header << endl;
-
-    while (getline(fin, state)) {  // reads the first attribute, the state
-        fin.ignore();  // needed between a fin>> and a getline(fin)
-        getline(fin, abbr);  // reads the second attribute, the abbreviation
-        fin >> pop; // reads the third attribute, the double
-        cout << state << "\t" << abbr << "\t" << pop << endl;
-    }
     if (fin.good( )) {
-        
+        string arr[50];
+        int count = 0;
+    
+        string line;
+        //header
+        getline(fin, line);
+        cout << line << endl;
+
+        while (getline(fin, line) && count < 50) { 
+            arr[count] = line;
+            count += 1;
+        }
+        fin.close( ); // close the file
     }
-    fin.close( ); // close the file          
-    ...
-  }
-  else
-    cout << "File not found.\n";
+    else
+       cout << "File not found.\n";
+
+    for (int i = 0; i < count; i++) {
+        cout << lines[i] << endl;
+    }
+
 }
 
 
